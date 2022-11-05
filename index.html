@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sharon - Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    
+ 
+
+ 
+</head>
+  <body>
+    <div class="container">
+        <h1>Calculadora - Sharon</h1>
+
+            <div class="col-3">
+                <input type="text" id="resultado">
+            </div>
+            <div class="mt-1">
+                <button class="btn btn-outline-info" onclick="jboton(1)">1</button>
+                <button class="btn btn-outline-info" onclick="jboton(2)">2</button>
+                <button class="btn btn-outline-info" onclick="jboton(3)">3</button>
+                <button class="btn btn-outline-info" onclick="jsuma()">+</button>
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-outline-info" onclick="jboton(4)">4</button>
+                <button class="btn btn-outline-info" onclick="jboton(5)">5</button>
+                <button class="btn btn-outline-info" onclick="jboton(6)">6</button>
+                <button class="btn btn-outline-info" onclick="jboton()">-</button>
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-outline-info" onclick="jboton(7)">7</button>
+                <button class="btn btn-outline-info" onclick="jboton(8)">8</button>
+                <button class="btn btn-outline-info" onclick="jboton(9)">9</button>
+                <button class="btn btn-outline-info" onclick="jmultiplicar()">*</button> 
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-outline-info" onclick="jboton(0)">0</button>
+                <button class="btn btn-outline-info" onclick="jdividir()">/</button>
+                <button class="btn btn-outline-info" onclick="jborrar()">C</button>
+                <button class="btn btn-outline-info" onclick="jigual()">=</button>
+            </div>
+            <div class="mt-1">
+              <button class="btn btn-outline-info" onclick="jpotencia()">^</button>            
+              <button class="btn btn-outline-info" onclick="jraiz()">√</button>
+              <button class="btn btn-outline-info" onclick="jcos()">Cosφ</button>
+              <button class="btn btn-outline-info" onclick="jtan()">tan B</button>
+              <button class="btn btn-outline-info" onclick="jSaludo()">Saludo</button>
+            </div>
+          </div>
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    
+        <script>
+          //$("#resultado").val("Hola, comencemos :)");
+    
+          var num = "";
+        var val1 = "";
+        var oper = 0;
+        raizC=parseInt (1);
+    
+          function jigual(){
+                if(oper == 1){
+                    tmp = parseInt (val1) + parseInt(num);
+                    $("#resultado").val(tmp);
+                    num = tmp;
+                }
+                if(oper == 2){
+                    tmp = parseInt (val1) - parseInt(num);
+                    $("#resultado").val(tmp);
+                    num = tmp;
+                }
+                if(oper == 3){
+                    tmp = parseInt (val1) * parseInt(num);
+                    $("#resultado").val(tmp);
+                    num = tmp;
+                }
+                if(oper == 4){
+                    tmp = parseInt (val1) / parseInt(num);
+                    $("#resultado").val(tmp);
+                    num = tmp;
+                }
+                if(oper == 5){
+                    tmp = val1;
+                    while (num > 1){
+                        tmp = parseInt (tmp) * parseInt (val1);
+                        num = parseInt (num) - 1;
+                    }
+                    $("#resultado").val(tmp);
+                    num = tmp;
+                }
+                oper = 0;
+            }
+    
+            function jsuma(){
+                val1 = num;
+                oper = 1;
+                jborrar();
+            }
+    
+            function jresta(){
+                val1 = num;
+                oper = 2;
+                jborrar();
+            }
+    
+            function jmultiplicar(){
+            val1 = num;
+            oper = 3;
+            jborrar();
+        }
+    
+            function jdividir(){
+                val1 = num;
+                oper = 4;
+                jborrar();
+            }
+    
+            function jpotencia(){
+                val1 = num;
+                oper = 5;
+                jborrar();
+            }
+    
+            function jraiz(){
+
+                val1 = num;
+                oper = 7;
+                tmp = Math.sqrt(num);
+                $("#resultado").val(tmp);
+                num = tmp;
+            }
+    
+            function jcos(){
+                val1 = num;
+                oper = 7;
+                tmp = Math.cos(num);
+                $("#resultado").val(tmp);
+                num=tmp;
+            }
+    
+            function jtan(){
+                val1 = num;
+                oper = 8;
+                tmp = Math.tan(num);
+                $("#resultado").val(tmp);
+                num = tmp;
+            }
+    
+            function jSaludo(){
+                val1 = num;
+                oper = 9;
+                tmp = "Hola soy Sharon"
+                $("#resultado").val(tmp);
+                num = tmp;
+            }
+    
+    
+            function jboton(valor){
+                num = num + valor;
+                $("#resultado").val(num);
+            }
+
+
+            function jborrar (){
+            $("#resultado").val("");
+            num = "";
+        }
+        </script>
+        
+      </body>
+    </html>
